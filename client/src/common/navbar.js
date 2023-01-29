@@ -246,7 +246,7 @@ function Navbar(props) {
   
   return (
     <div className={classes.grow}>
-      <AppBar style={{position:"sticky", top:"0"}}>
+      <AppBar style={{position:"sticky", top:"0", backgroundColor:"#262626"}}>
         <Toolbar>
           {/* <IconButton
             edge="start"

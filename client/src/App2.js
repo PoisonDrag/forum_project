@@ -18,7 +18,7 @@ import EditPost from './components/editPost'
 import {toast} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css'
 import { makeStyles } from '@material-ui/core/styles';
-import bgimg from './giphy3.gif'
+import bgimg from './giphy.gif'
 import Flash from './common/flash'
 import InfiniteScroll from 'react-infinite-scroll-component';
 
@@ -76,7 +76,7 @@ const useStyles = makeStyles({
       // top:"64px",
       left:"0",
       backgroundImage: `url(${bgimg})`,
-      backgroundColor:"skyblue",
+      backgroundColor:"black",
       background:"center fixed no-repeat",
       backgroundSize:"cover",
       // opacity:"0.7",
@@ -206,7 +206,7 @@ function findPost(threadName, postName){
   return (
     <div className={classes.root}>
       <div className={classes.bg}>
-      <Navbar isLoggedIn = {isLoggedIn} search={search} setSearch={setSearch} page = {page} timer ={timer} setTimer={setTimer}/>
+      <Navbar isLoggedIn = {isLoggedIn} search={search} setSearch={setSearch} page = {page} timer ={timer} setTimer={setTimer} style={{backgroundColor:"black"}}/>
       {/* <Footer /> */}
       <Route render = {({location})=>(
         <TransitionGroup className="All">     
@@ -224,6 +224,7 @@ function findPost(threadName, postName){
             // <div className="Page">
             {/* {console.log(ThreadData)} */}
             {setPage("threads")}
+            {console.log(ThreadData)}
             return <Threads threads = {ThreadData && ThreadData.length>=0 ? ThreadData: null} isLoggedIn = {isLoggedIn} showFlash = {showNTFlash} setShow = {setShowNTF} search={search} setSearch={setSearch}/>
             // </div>
           }} />
@@ -292,8 +293,8 @@ function findPost(threadName, postName){
           } />
           <Route exact path = "/logout" render = {(routeProps)=>
             <div className="Page">
-            {setIsLoggedIn(false),
-                <Redirect to = '/login'/>}
+                {setIsLoggedIn(false)}
+                <Redirect to = '/login'/>
             </div>
           } />
           <Route path ='*' render ={(routeProps)=>
