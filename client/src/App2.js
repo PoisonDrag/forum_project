@@ -113,7 +113,7 @@ function App() {
     cookie.set("loginSession",isLoggedIn, {path:'/', expires:(new Date(Date.now() + 24*14*60*60*1000))})
   // 
   // console.log(cookie.get('loginSession'))
-  if(isLoggedIn === 'false'){
+  if(isLoggedIn == NULL || isLoggedIn === 'false'){
     setIsLoggedIn(false)
   }
   // const getThread = () =>{
@@ -122,6 +122,7 @@ function App() {
   useEffect(()=>{
     let cancel;
     console.log("Thread get")
+    
     axios({
       method:"GET",
       url:"/getThreads",
@@ -135,6 +136,9 @@ function App() {
   useEffect(()=>{
     let cancel;
     console.log("Post get")
+    if(isLoggedIn == NULL || isLoggedIn === 'false'){
+      setIsLoggedIn(false)
+    }
     axios({
       method:"GET",
       url:"/:threadName/getPosts",
@@ -147,6 +151,9 @@ function App() {
   }, [postState])
 
   if(newThread.title){
+    if(isLoggedIn == NULL || isLoggedIn === 'false'){
+      setIsLoggedIn(false)
+    }
     axios.post('/getThreads', {newThread,log:isLoggedIn})
     .then(() => setShowNTF(true))
     // .then(res => setThreadData([...res.data.thread.threads]))
@@ -154,6 +161,9 @@ function App() {
     setNewThread({})
   }
   if(delPost){
+    if(isLoggedIn == NULL || isLoggedIn === 'false'){
+      setIsLoggedIn(false)
+    }
     // console.log(delPost)
     setDelPost(false)
     setPostState("deleted!")
@@ -163,6 +173,9 @@ function App() {
 
   }
   const handleCom = async (routeProps) =>{
+    if(isLoggedIn == NULL || isLoggedIn === 'false'){
+      setIsLoggedIn(false)
+    }
     if(commentData){
         // console.log("comment post called")
         const post = findPost(routeProps.params.threadName, routeProps.params.postName)
