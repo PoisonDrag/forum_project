@@ -94,7 +94,7 @@ export default function () {
     const [val,setVal] = React.useState(true)
     return (
         <div className={classes.bg}>
-           <h1 className={classes.title}>Welcome to Site Name</h1> 
+           <h1 className={classes.title}>Welcome to Nirmay's Forum!</h1> 
            {/* {console.log(typewriter.start)} */}
            {/* {typewriter.start} */}
            <div className={classes.type}>
