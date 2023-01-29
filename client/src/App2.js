@@ -113,7 +113,7 @@ function App() {
     cookie.set("loginSession",isLoggedIn, {path:'/', expires:(new Date(Date.now() + 24*14*60*60*1000))})
   // 
   // console.log(cookie.get('loginSession'))
-  if(isLoggedIn == NULL || isLoggedIn === 'false'){
+  if(isLoggedIn == null || isLoggedIn === 'false'){
     setIsLoggedIn(false)
   }
   // const getThread = () =>{
@@ -136,7 +136,7 @@ function App() {
   useEffect(()=>{
     let cancel;
     console.log("Post get")
-    if(isLoggedIn == NULL || isLoggedIn === 'false'){
+    if(isLoggedIn == null || isLoggedIn === 'false'){
       setIsLoggedIn(false)
     }
     axios({
@@ -151,7 +151,7 @@ function App() {
   }, [postState])
 
   if(newThread.title){
-    if(isLoggedIn == NULL || isLoggedIn === 'false'){
+    if(isLoggedIn == null || isLoggedIn === 'false'){
       setIsLoggedIn(false)
     }
     axios.post('/getThreads', {newThread,log:isLoggedIn})
@@ -161,7 +161,7 @@ function App() {
     setNewThread({})
   }
   if(delPost){
-    if(isLoggedIn == NULL || isLoggedIn === 'false'){
+    if(isLoggedIn == null || isLoggedIn === 'false'){
       setIsLoggedIn(false)
     }
     // console.log(delPost)
@@ -173,7 +173,7 @@ function App() {
 
   }
   const handleCom = async (routeProps) =>{
-    if(isLoggedIn == NULL || isLoggedIn === 'false'){
+    if(isLoggedIn == null || isLoggedIn === 'false'){
       setIsLoggedIn(false)
     }
     if(commentData){
