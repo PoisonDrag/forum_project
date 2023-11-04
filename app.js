@@ -80,11 +80,6 @@ mongoose.connect(dbUrl, {
 });
 
 const db = mongoose.connection;
-db.on("error", console.error.bind(console, "connection error:"));
-db.once("open", () => { 
-    console.log("this is url: ", dbUrl);
-    console.log("Database connected");
-});
 
 passport.use(new LocalStrategy(User.authenticate()))
 passport.serializeUser(User.serializeUser())
